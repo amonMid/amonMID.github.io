@@ -1,0 +1,48 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: black;
+  overflow: hidden;
+}
+
+.flashlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: radial-gradient(circle 250px at var(--x, 50%) var(--y, 50%), rgba(255,255,255,.95), rgba(0,0,0,1) 85%);
+  transition: background-position .05s;
+  z-index: 2;
+}
+
+.message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 6rem;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+  font-family: 'Creepster', cursive;
+  text-shadow: 0 0 30px red, 0 0 60px darkred;
+  pointer-events: none;
+}
+
+.scary-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 100vh;
+  width: auto;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
