@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashlight Cursor Effect</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .flashlight {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      background: radial-gradient(circle 250px at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, 0.95), rgba(0, 0, 0, 1) 85%);
+      transition: background-position 0.05s;
+      z-index: 2;
+    }
+
+    .message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 6rem;
+      font-weight: bold;
+      color: red;
+      text-align: center;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      font-family: 'Creepster', cursive;
+      text-shadow: 0 0 30px red, 0 0 60px darkred;
+      pointer-events: none;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+    .scary-image {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      height: 100vh;
+      width: auto;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+  </style>
+</head>
+<body>
+  <div class="flashlight"></div>
+  <div class="message" id="message">look behind you</div>
+  <img src="image/i-really-hate-zani-v0-2hbkgoyrkkwe1.webp" alt="Scary" class="scary-image" id="scary" />
+
+  <script>
+    const flashlight = document.querySelector('.flashlight');
+    const message = document.getElementById('message');
+    const scaryImage = document.getElementById('scary');
+
+    const messageRect = () => message.getBoundingClientRect();
+
+    document.addEventListener('mousemove', e => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      flashlight.style.setProperty('--x', `${x}px`);
+      flashlight.style.setProperty('--y', `${y}px`);
+
+      const rect = messageRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const distance = Math.hypot(centerX - x, centerY - y);
+
+      message.style.opacity = distance < 250 ? 1 : 0;
+    });
+
+    setTimeout(() => {
+      scaryImage.style.opacity = 1;
+    }, 5000);
+  </script>
+</body>
+</html>
