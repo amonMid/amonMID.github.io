@@ -1,6 +1,8 @@
 const box = document.querySelector('.box');
 const scaryImage = document.getElementById('scary');
 const fadeOverlay = document.querySelector('.fade-overlay');
+const glitch = document.querySelector('.glitch');
+const glitchSound = document.getElementById('glitchsound');
 
 let flashlightX = window.innerWidth / 2;
 let flashlightY = window.innerHeight / 2;
@@ -82,6 +84,7 @@ function triggerBigReveal(){
   finalRevealed = true;
 
   fadeOverlay.style.opacity = 1;
+  setTimeout(() => triggerGlitch(), 50);
 
   setTimeout(() => {
     scaryImage.style.left = '50%';
@@ -94,19 +97,23 @@ function triggerBigReveal(){
   
   setTimeout(() => {
     fadeOverlay.style.opacity = 0;
+    setTimeout(() => triggerGlitch(), 50);
   }, 2000);
 
   setTimeout(() => {
     fadeOverlay.style.opacity = 1;
+    setTimeout(() => triggerGlitch(), 50);
 
     setTimeout(() => {
       scaryImage.style.height = '';
       scaryImage.style.width = '';
       scaryImage.classList.add('big');
       fadeOverlay.style.opacity = 0;
+      setTimeout(() => triggerGlitch(), 50);
 
       setTimeout(() => {
         fadeOverlay.style.opacity = 1;
+        setTimeout(() => triggerGlitch(), 50);
 
         setTimeout(() => {
           scaryImage.classList.remove('big');
@@ -122,6 +129,7 @@ function triggerBigReveal(){
             finalRevealed = false;
             scaryImageFound();
             fadeOverlay.style.opacity = 0;
+            setTimeout(() => triggerGlitch(), 50);
           }, 500);
         }, 2000 );
       }, 4000);
@@ -129,6 +137,21 @@ function triggerBigReveal(){
   }, 5000);
   
 
+}
+
+function triggerGlitch() {
+  glitch.classList.add('active');
+  try {
+    glitchSound.pause();
+    glitchSound.currentTime = 0;
+    glitchSound.play();
+  } catch (e) {
+    console.warn('Glitch Sound Failed', e);
+  }
+
+  setTimeout(() => {
+    glitch.classList.remove('active');
+  }, 500);
 }
 
 setTimeout(() => {
