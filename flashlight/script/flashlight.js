@@ -1,9 +1,13 @@
 const box = document.querySelector('.box');
 const scaryImage = document.getElementById('scary');
+const fadeOverlay = document.querySelector('.fade-overlay');
 
 let flashlightX = window.innerWidth / 2;
 let flashlightY = window.innerHeight / 2;
 const radius = 300;
+
+let hideTimer;
+let finalRevealed = false;
 
 document.addEventListener('mousemove', e => {
   const rect = box.getBoundingClientRect();
@@ -49,6 +53,8 @@ function moveImageOutsideSmoothly() {
 }
 
 function checkImageInBeam() {
+  if (finalRevealed) return;
+  
   const rect = scaryImage.getBoundingClientRect();
   const centerX = rect.left + rect.width / 2;
   const centerY = rect.top + rect.height / 2;
@@ -56,14 +62,78 @@ function checkImageInBeam() {
   const dy = flashlightY - centerY;
   const dist = Math.sqrt(dx * dx + dy * dy);
 
+  if (dist < radius){
+    scaryImage.style.opacity = 1;
+    scaryImage.classList.remove('big');
+    scaryImageFound();
+  }
+
   if (dist < radius && !scaryImage.classList.contains('jump')) {
     moveImageOutsideSmoothly();
   }
 }
 
-// Initial reveal
+function scaryImageFound(){
+  clearTimeout(hideTimer);
+  hideTimer = setTimeout(triggerBigReveal, 5000)
+}
+
+function triggerBigReveal(){
+  finalRevealed = true;
+
+  fadeOverlay.style.opacity = 1;
+
+  setTimeout(() => {
+    scaryImage.style.left = '50%';
+    scaryImage.style.top = '50%';
+    scaryImage.style.transform = 'translate(-50%, -50%)';
+    scaryImage.style.height = '150px';
+    scaryImage.style.width = 'auto';
+    scaryImage.style.opacity = 1;
+  }, 500);
+  
+  setTimeout(() => {
+    fadeOverlay.style.opacity = 0;
+  }, 2000);
+
+  setTimeout(() => {
+    fadeOverlay.style.opacity = 1;
+
+    setTimeout(() => {
+      scaryImage.style.height = '';
+      scaryImage.style.width = '';
+      scaryImage.classList.add('big');
+      fadeOverlay.style.opacity = 0;
+
+      setTimeout(() => {
+        fadeOverlay.style.opacity = 1;
+
+        setTimeout(() => {
+          scaryImage.classList.remove('big');
+          scaryImage.style.height = '150px';
+          scaryImage.style.width = 'auto';
+
+          const{x, y} = randomOutsidePosition();
+          scaryImage.style.left = `${x}px`;
+          scaryImage.style.top = `${y}px`;
+          scaryImage.style.transform = 'translate(-50%, -50%)';
+
+          setTimeout(() => {
+            finalRevealed = false;
+            scaryImageFound();
+            fadeOverlay.style.opacity = 0;
+          }, 500);
+        }, 2000 );
+      }, 4000);
+    }, 2000);
+  }, 5000);
+  
+
+}
+
 setTimeout(() => {
   const { x, y } = randomOutsidePosition();
   moveImageTo(x, y);
   scaryImage.style.opacity = 1;
+  scaryImageFound();
 }, 3000);
