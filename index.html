@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio of Anchor Jave Arnejo - Full Stack Developer specializing in React, React Native, and C#">
+    <meta name="theme-color" content="#0a0f1a">
+    <title>Anchor Jave Arnejo | Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <a href="#home" class="logo" aria-label="Go to home">
+                <span class="logo-icon">A</span>
+                <span class="logo-text">AJEA</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="#home" role="menuitem" class="nav-link active">Home</a></li>
+                <li role="none"><a href="#about" role="menuitem" class="nav-link">About</a></li>
+                <li role="none"><a href="#skills" role="menuitem" class="nav-link">Skills</a></li>
+                <li role="none"><a href="#projects" role="menuitem" class="nav-link">Projects</a></li>
+                <li role="none"><a href="#contact" role="menuitem" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Available for Work
+                </div>
+                <h1 id="hero-title" class="hero-title">
+                    <span class="title-line">Full Stack</span>
+                    <span class="title-line highlight">Developer</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Passionate CS graduate building modern web and mobile applications.
+                    Specialized in React, React Native, and C# with a focus on clean code,
+                    accessibility, and creating delightful user experiences.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View Projects</span>
+                        <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-count="4">0</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <!-- <div class="stat">
+                        <span class="stat-number" data-count="1">0</span>
+                        <span class="stat-label">Years Professional</span>
+                    </div> -->
+                    <div class="stat">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Tech Skills</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="wuwa-ring ring-1"></div>
+                <div class="wuwa-ring ring-2"></div>
+                <div class="wuwa-ring ring-3"></div>
+                <div class="wuwa-core"></div>
+            </div>
+            <a href="#about" class="scroll-indicator" aria-label="Scroll to about section">
+                <span class="scroll-text">Scroll</span>
+                <div class="scroll-line"></div>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about" aria-labelledby="about-title">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">01</span>
+                    <h2 id="about-title" class="section-title">About Me</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="image-frame">
+                            <div class="image-placeholder">
+                                <img src="https://avatars.githubusercontent.com/u/156290626?v=4" alt="Profile">
+                            </div>
+                        </div>
+                        <div class="image-accent"></div>
+                    </div>
+                    <div class="about-text">
+                        <p class="about-intro">
+                            Hey there! I&apos;m Anchor Jave Arnejo, a Computer Science graduate
+                            passionate about building beautiful, functional applications across
+                            web and mobile platforms.
+                        </p>
+                        <p>
+                            I specialize in creating user-centric solutions with modern technologies.
+                            Currently focused on full-stack development with React, React Native, and C#.
+                            I believe in writing clean, maintainable code and following HCI best practices
+                            to ensure every project is accessible and delightful for users.
+                        </p>
+                        <div class="about-links">
+                            <a href="https://github.com/amonMid" target="_blank" rel="noopener noreferrer"
+                                class="social-link" aria-label="GitHub Profile">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </a>
+                            <!-- <a href="https://linkedin.com/in/anchor-jave-arnejo" target="_blank"
+                                rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                            <a href="mailto:anchor.arnejo@gmail.com" class="social-link" aria-label="Email">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" aria-hidden="true">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills" aria-labelledby="skills-title">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">02</span>
+                    <h2 id="skills-title" class="section-title">Skills & Expertise</h2>
+                </div>
+                <div class="skills-grid">
+                    <article class="skill-card" tabindex="0">
+                        <div class="skill-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" aria-hidden="true">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Web Development</h3>
+                        <p class="skill-desc">Building responsive interfaces with React, HTML, CSS, and JavaScript.
+                            Experienced with Tailwind CSS for modern styling.</p>
+                        <ul class="skill-tags" aria-label="Technologies">
+                            <li>React</li>
+                            <li>JavaScript</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </article>
+                    <article class="skill-card" tabindex="0">
+                        <div class="skill-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" aria-hidden="true">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <path d="M8 21h8M12 17v4" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Mobile Development</h3>
+                        <p class="skill-desc">Creating cross-platform mobile applications with React Native for iOS and
+                            Android.</p>
+                        <ul class="skill-tags" aria-label="Technologies">
+                            <li>React Native</li>
+                            <li>JavaScript</li>
+                            <li>Cross-Platform</li>
+                        </ul>
+                    </article>
+                    <article class="skill-card" tabindex="0">
+                        <div class="skill-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" aria-hidden="true">
+                                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Backend & C# Development</h3>
+                        <p class="skill-desc">Building robust applications with C# and .NET. Experience with ASP.NET MVC
+                            and WinForms for desktop applications.</p>
+                        <ul class="skill-tags" aria-label="Technologies">
+                            <li>C#</li>
+                            <li>ASP.NET MVC</li>
+                            <li>WinForms</li>
+                        </ul>
+                    </article>
+                    <article class="skill-card" tabindex="0">
+                        <div class="skill-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" aria-hidden="true">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Database Management</h3>
+                        <p class="skill-desc">Designing and managing scalable data architectures with SQL Server and
+                            MySQL. Experienced in leveraging Firebase for real-time NoSQL solutions and seamless cloud
+                            integration.</p>
+                        <ul class="skill-tags" aria-label="Technologies">
+                            <li>SQL Server</li>
+                            <li>MySQL</li>
+                            <li>Firebase</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects" aria-labelledby="projects-title">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">03</span>
+                    <h2 id="projects-title" class="section-title">Featured Projects</h2>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card featured" tabindex="0">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                                    alt="E-Commerce Platform" />
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-year">2024</span>
+                                <span class="project-type">Web Application</span>
+                            </div>
+                            <h3 class="project-title">Laptop E-Commerce Website</h3>
+                            <p class="project-desc">
+                                Group project for a modern laptop e-commerce platform.
+                                Frontend-focused with responsive design and smooth user interactions
+                                built with React and contemporary web technologies.
+                            </p>
+                            <ul class="project-tech" aria-label="Technologies used">
+                                <li>React</li>
+                                <li>JavaScript</li>
+                                <li>CSS</li>
+                                <li>HTML</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://amonmid.github.io/EcommerceProject_Group1_BSCS/" target="_blank"
+                                    rel="noopener noreferrer" class="project-link"
+                                    aria-label="View E-Commerce live site">
+                                    <span>Live Site</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" aria-hidden="true">
+                                        <path
+                                            d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card" tabindex="0">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <img src="https://play-lh.googleusercontent.com/QkZaU0lk_cf2LRH5b2xEpGvCNvIP2XJfavQZMJBBDRokt2GN9VlAHuUpLvwn7sJESAU"
+                                    alt="RO Stat Simulation" />
+
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-year">2024</span>
+                                <span class="project-type">Desktop Application</span>
+                            </div>
+                            <h3 class="project-title">Ragnarok Stat Simulation</h3>
+                            <p class="project-desc">
+                                Desktop application for simulating character stats in Ragnarok Online.
+                                Built with WinForms and WebView extension, combining C# backend
+                                logic with JavaScript/HTML frontend for rich UI.
+                            </p>
+                            <ul class="project-tech" aria-label="Technologies used">
+                                <li>C#</li>
+                                <li>WinForms</li>
+                                <li>JavaScript</li>
+                                <li>HTML</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/amonMid/StatSimulation" target="_blank"
+                                    rel="noopener noreferrer" class="project-link"
+                                    aria-label="View StatSimulation source code">
+                                    <span>Source</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        aria-hidden="true">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card" tabindex="0">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <img src="img/jeepneyrouteLogo.png" alt="Jeepney Route" />
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-year">2025</span>
+                                <span class="project-type">Mobile Application</span>
+                            </div>
+                            <h3 class="project-title">Jeepney Route</h3>
+                            <p class="project-desc">
+                                Current project building a cross-platform mobile application
+                                using React Native. Focuses on route optimization and transportation
+                                in an urban context.
+                            </p>
+                            <ul class="project-tech" aria-label="Technologies used">
+                                <li>React Native</li>
+                                <li>JavaScript</li>
+                                <li>iOS & Android</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/amonMid/jeepneyroute" target="_blank"
+                                    rel="noopener noreferrer" class="project-link"
+                                    aria-label="View JeepneyRoute source code">
+                                    <span>Source</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        aria-hidden="true">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card" tabindex="0">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <img src="img/timelessTalesLogo.png" alt="TimelessTales" />
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-year">2024</span>
+                                <span class="project-type">Web Application</span>
+                            </div>
+                            <h3 class="project-title">TimelessTales Novel Website</h3>
+                            <p class="project-desc">
+                                Full-stack web application for managing and reading novels.
+                                Features both admin-side content management and client-side reading interface
+                                built with ASP.NET MVC and C#.
+                            </p>
+                            <ul class="project-tech" aria-label="Technologies used">
+                                <li>C#</li>
+                                <li>ASP.NET MVC</li>
+                                <li>SQL Server</li>
+                                <li>HTML/CSS</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="http://arnejotimelesstales.runasp.net/" target="_blank"
+                                    rel="noopener noreferrer" class="project-link"
+                                    aria-label="View TimelessTales live site">
+                                    <span>Live Site</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" aria-hidden="true">
+                                        <path
+                                            d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="projects-cta">
+                    <a href="https://github.com/amonMid" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-outline">
+                        View All Projects
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" aria-hidden="true">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="experience" aria-labelledby="experience-title">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">04</span>
+                    <h2 id="experience-title" class="section-title">Experience</h2>
+                </div>
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2023 - 2027(Current)</span>
+                            <h3 class="timeline-title">Bachelor of Science in Computer Science</h3>
+                            <p class="timeline-company">Currently Pursuing</p>
+                            <p class="timeline-desc">
+                                Final year CS student with practical experience in full-stack development.
+                                Focusing on clean code practices, HCI principles, and building scalable applications
+                                across web, mobile, and desktop platforms.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="section-header centered">
+                    <span class="section-tag">05</span>
+                    <h2 id="contact-title" class="section-title">Get In Touch</h2>
+                </div>
+                <div class="contact-content">
+                    <p class="contact-intro">
+                        Interested in collaborating or just want to chat about development?
+                        Feel free to reach out! I&apos;m always excited to discuss new projects, technologies, or
+                        opportunities.
+                    </p>
+                    <a href="mailto:anchor.arnejo@gmail.com" class="btn btn-primary btn-lg">
+                        <span>Say Hello</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" aria-hidden="true">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                    </a>
+                    <div class="contact-social">
+                        <a href="https://github.com/amonMid" target="_blank" rel="noopener noreferrer"
+                            class="social-link-lg" aria-label="GitHub">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <!-- <a href="https://linkedin.com/in/anchor-jave-arnejo" target="_blank" rel="noopener noreferrer"
+                            class="social-link-lg" aria-label="LinkedIn">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="mailto:anchor.arnejo@gmail.com" class="social-link-lg" aria-label="Email">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" aria-hidden="true">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 7-10 5-10-5" />
+                            </svg>
+                        </a> -->
+                    </div>
+                    </svg>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Designed & Built with passion</p>
+                <p class="footer-copyright">&copy; 2024 Rover. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
