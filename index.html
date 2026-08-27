@@ -35,7 +35,7 @@
             font-family: var(--font-main); 
             -webkit-font-smoothing: antialiased; 
             overflow-x: hidden;
-            cursor: none; /* Hide default cursor */
+            cursor: none; 
         }
         
         a { text-decoration: none; color: inherit; cursor: none; }
@@ -86,21 +86,16 @@
             opacity: 0;
             overflow: hidden;
             border-radius: 4px;
-            /* Scale handled in JS */
             transition: opacity 0.4s ease;
-            background: #111; /* Gives a solid background while images load */
+            background: #111; 
         }
-        .project-image-follower.active {
-            opacity: 1;
-        }
+        .project-image-follower.active { opacity: 1; }
         .project-image-follower img {
             width: 100%; height: 100%; object-fit: cover;
             transform: scale(1.2);
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .project-image-follower.active img {
-            transform: scale(1);
-        }
+        .project-image-follower.active img { transform: scale(1); }
 
         /* Layout */
         .container { max-width: 1600px; margin: 0 auto; padding: 0 4vw; }
@@ -138,46 +133,123 @@
         /* Hero Section */
         .hero { 
             height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: flex-end; 
+            display: flex; flex-direction: column; justify-content: flex-end; 
             padding-bottom: 8vh;
         }
         .hero-title {
             font-size: clamp(3.5rem, 11vw, 13rem);
-            font-weight: 500;
-            line-height: 0.85;
-            letter-spacing: -0.04em;
-            text-transform: uppercase;
-            margin-bottom: 40px;
+            font-weight: 500; line-height: 0.85; letter-spacing: -0.04em;
+            text-transform: uppercase; margin-bottom: 40px;
         }
         .hero-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-top: 1px solid var(--border-color);
-            padding-top: 30px;
+            display: flex; justify-content: space-between; align-items: flex-end;
+            border-top: 1px solid var(--border-color); padding-top: 30px;
         }
         .hero-info p { font-size: 1rem; color: var(--text-muted); max-width: 300px; line-height: 1.5; }
         .scroll-indicator { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Work List Section */
-        .work { padding: 15vh 0; }
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 400;
-            margin-bottom: 80px;
+        /* =========================================
+             CHAPTER I: CINEMATIC PORTRAIT REVEAL
+             ========================================= */
+        .cinematic-section {
+            position: relative;
+            height: 250vh; 
+            background-color: var(--bg-color);
+        }
+        .cinematic-sticky {
+            position: sticky;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .cinematic-rings {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 200vw; height: 200vw;
+            transform: translate(-50%, -50%);
+            background-image: repeating-radial-gradient(
+                circle at center,
+                transparent 0,
+                transparent 50px,
+                rgba(255, 255, 255, 0.03) 51px,
+                transparent 52px
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+        .cinematic-image-wrapper {
+            position: relative;
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 2;
+        }
+        .cinematic-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 20%, #050505 70%);
+            z-index: 3;
+            pointer-events: none;
+        }
+        .cinematic-img {
+            max-width: 500px; 
+            width: 80%;
+            height: auto;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.2) brightness(0.5); 
+            transform: scale(1.1); 
+            transform-origin: center center;
+            will-change: transform, filter;
+        }
+        .cinematic-text {
+            position: absolute;
+            left: 10vw;
+            bottom: 12vh;
+            z-index: 4;
+            opacity: 0; 
+            transform: translateY(50px); 
+            pointer-events: none;
+            max-width: 500px;
+        }
+        .chapter-label {
+            font-size: 0.8rem;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex; align-items: center; gap: 15px;
+        }
+        .chapter-label::before {
+            content: '';
+            display: block;
+            width: 10px; height: 10px;
+            border: 1px solid var(--text-muted);
+        }
+        .chapter-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 500;
             letter-spacing: -0.02em;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+        .chapter-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Work List Section (Chapter II) */
+        .work { padding: 15vh 0 5vh; }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; margin-bottom: 80px;
+            text-transform: uppercase; letter-spacing: -0.02em;
         }
         
         .work-list { border-top: 1px solid var(--border-color); }
         .work-item {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 50px 0;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-            z-index: 10;
+            padding: 50px 0; border-bottom: 1px solid var(--border-color);
+            position: relative; z-index: 10;
             transition: color var(--transition-fast), padding var(--transition-fast);
         }
         .work-item:hover { color: rgba(255,255,255,0.5); padding: 50px 20px; }
@@ -186,34 +258,35 @@
         .work-item-tech { flex: 1; font-size: 1rem; color: var(--text-muted); text-transform: uppercase; }
         .work-item-year { font-size: 1rem; font-family: monospace; }
         .work-link-overlay { position: absolute; inset: 0; z-index: 20; }
-        
         .work-mobile-img { display: none; }
 
-        /* About Section */
-        .about { padding: 10vh 0 15vh; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10vw; align-items: start; }
-        .about-text h2 { font-size: clamp(2rem, 4vw, 4rem); font-weight: 400; line-height: 1.1; margin-bottom: 40px; letter-spacing: -0.02em; }
-        .about-text p { font-size: 1.2rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 30px; max-width: 600px; }
+        /* History Section (Chapter III) */
+        .history { padding: 15vh 0; }
+        .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10vw; align-items: start; }
+        .history-text h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.1; margin-bottom: 40px; letter-spacing: -0.02em; }
         
-        .about-image { border-radius: 4px; overflow: hidden; background: #111; aspect-ratio: 3/4; }
-        .about-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: filter var(--transition-fast); }
-        .about-image:hover img { filter: grayscale(0%); }
+        .timeline { border-left: 1px solid var(--border-color); padding-left: 30px; margin-top: 20px; }
+        .timeline-item { position: relative; margin-bottom: 50px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -36px; top: 6px;
+            width: 11px; height: 11px; background: var(--bg-color);
+            border: 2px solid var(--text-main); border-radius: 50%;
+        }
+        .timeline-year { font-size: 0.85rem; font-family: monospace; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; }
+        .timeline-title { font-size: 1.25rem; font-weight: 500; margin-bottom: 10px; }
+        .timeline-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.6; }
 
-        .skills-grid { margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; border-top: 1px solid var(--border-color); padding-top: 40px; }
+        .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px; }
         .skills-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: var(--text-main); }
         .skills-col li { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 10px; }
 
         /* Contact Footer */
         .contact { padding: 15vh 0 5vh; text-align: center; }
         .contact-cta {
-            font-size: clamp(4rem, 12vw, 15rem);
-            font-weight: 500;
-            line-height: 0.8;
-            letter-spacing: -0.05em;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 60px;
-            position: relative;
+            font-size: clamp(4rem, 12vw, 15rem); font-weight: 500; line-height: 0.8;
+            letter-spacing: -0.05em; text-transform: uppercase; display: inline-block;
+            margin-bottom: 60px; position: relative;
         }
         .contact-cta::after {
             content: ''; position: absolute; bottom: 10px; left: 0;
@@ -224,8 +297,7 @@
         
         .footer-bottom {
             display: flex; justify-content: space-between; align-items: center;
-            border-top: 1px solid var(--border-color);
-            padding-top: 30px;
+            border-top: 1px solid var(--border-color); padding-top: 30px;
             font-size: 0.9rem; color: var(--text-muted);
         }
         .footer-socials { display: flex; gap: 30px; }
@@ -234,8 +306,8 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .about-grid { grid-template-columns: 1fr; gap: 60px; }
-            .about-image { max-width: 600px; }
+            .history-grid { grid-template-columns: 1fr; gap: 60px; }
+            .cinematic-text { left: 5vw; max-width: 90vw; }
         }
         
         @media (max-width: 768px) {
@@ -249,9 +321,14 @@
             .work-item { flex-direction: column; align-items: flex-start; gap: 15px; padding: 40px 0; }
             .work-item:hover { padding: 40px 0; color: var(--text-main); }
             
-            /* Show inline images on mobile instead of hover */
             .work-mobile-img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 4px; margin-top: 20px; filter: grayscale(100%); background: #111; }
             
+            .cinematic-section { height: 100vh; }
+            .cinematic-sticky { position: relative; }
+            .cinematic-img { transform: scale(1) !important; filter: grayscale(100%) contrast(1.2) brightness(0.8) !important; }
+            .cinematic-overlay { opacity: 0 !important; }
+            .cinematic-text { opacity: 1 !important; transform: translateY(0) !important; bottom: 5vh; left: 5vw; }
+
             .contact-cta::after { display: none; }
             .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
         }
@@ -269,8 +346,9 @@
     <header class="header">
         <a href="#home" class="logo interactable">AJEA.</a>
         <div class="nav-links">
-            <a href="#work" class="interactable">Work</a>
-            <a href="#about" class="interactable">About</a>
+            <a href="#cinematic-transition" class="interactable">Chapter I</a>
+            <a href="#work" class="interactable">Chapter II</a>
+            <a href="#history" class="interactable">Chapter III</a>
             <a href="#contact" class="interactable">Contact</a>
         </div>
     </header>
@@ -288,12 +366,34 @@
             </div>
         </section>
 
-        <!-- Selected Work Section -->
+        <!-- =========================================
+             CHAPTER I: PORTRAIT, DESCRIPTION & SKILLS
+             ========================================= -->
+        <section id="cinematic-transition" class="cinematic-section">
+            <div class="cinematic-sticky">
+                <div class="cinematic-rings"></div>
+                
+                <div class="cinematic-image-wrapper">
+                    <div class="cinematic-overlay"></div>
+                    <img src="https://placehold.co/1000x1200/111/444?text=Your+Portrait+Here" alt="Anchor Jave Arnejo" class="cinematic-img interactable">
+                </div>
+                
+                <div class="cinematic-text">
+                    <span class="chapter-label">Chapter I &mdash; Overview</span>
+                    <h2 class="chapter-title">ANCHOR JAVE ARNEJO</h2>
+                    <p class="chapter-desc">Passionate CS graduate building modern web and mobile applications. Specialized in React, React Native, and C# with a focus on clean code and user-centric architecture.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             CHAPTER II: SELECTED WORKS
+             ========================================= -->
         <section id="work" class="work container">
+            <span class="chapter-label" style="margin-bottom: 20px;">Chapter II</span>
             <h2 class="section-title fade-up">Selected Works</h2>
             
             <div class="work-list">
-                <!-- Project 1 -->
                 <article class="work-item fade-up" data-image="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg">
                     <div class="work-item-name">E-Commerce</div>
                     <div class="work-item-tech">React &bull; JS</div>
@@ -302,7 +402,6 @@
                     <a href="https://amonmid.github.io/EcommerceProject_Group1_BSCS/" target="_blank" class="work-link-overlay interactable-project" aria-label="View E-Commerce"></a>
                 </article>
 
-                <!-- Project 2 -->
                 <article class="work-item fade-up" data-image="https://play-lh.googleusercontent.com/QkZaU0lk_cf2LRH5b2xEpGvCNvIP2XJfavQZMJBBDRokt2GN9VlAHuUpLvwn7sJESAU">
                     <div class="work-item-name">Stat Sim</div>
                     <div class="work-item-tech">C# &bull; WinForms</div>
@@ -311,17 +410,14 @@
                     <a href="https://github.com/amonMid/StatSimulation" target="_blank" class="work-link-overlay interactable-project" aria-label="View Stat Sim"></a>
                 </article>
 
-                <!-- Project 3 -->
                 <article class="work-item fade-up" data-image="img/jeepneyrouteLogo.png">
                     <div class="work-item-name">Jeepney Route</div>
                     <div class="work-item-tech">React Native</div>
                     <div class="work-item-year">2025</div>
-                    <!-- Added a broken image fallback script just in case the local img isn't uploaded -->
                     <img src="img/jeepneyrouteLogo.png" onerror="this.src='https://placehold.co/800x500/111/555?text=Jeepney+Route'" class="work-mobile-img" alt="Jeepney Route">
                     <a href="https://github.com/amonMid/jeepneyroute" target="_blank" class="work-link-overlay interactable-project" aria-label="View Jeepney Route"></a>
                 </article>
 
-                <!-- Project 4 -->
                 <article class="work-item fade-up" data-image="img/timelessTalesLogo.png">
                     <div class="work-item-name">TimelessTales</div>
                     <div class="work-item-tech">ASP.NET MVC</div>
@@ -332,36 +428,48 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="about container">
-            <div class="about-grid">
-                <div class="about-text fade-up">
-                    <h2>PASSIONATE CS GRADUATE CRAFTING MODERN SOLUTIONS.</h2>
-                    <p>I'm Anchor Jave Arnejo, a developer based in Cebu, Philippines. I specialize in building user-centric solutions utilizing contemporary technologies, heavily focused on full-stack development with React, React Native, and C#.</p>
-                    <p>I believe in writing clean, maintainable architecture and following strict HCI principles to ensure that every project is both accessible and delightful for the end-user.</p>
+        <!-- =========================================
+             CHAPTER III: HISTORY & TIMELINE
+             ========================================= -->
+        <section id="history" class="history container">
+            <span class="chapter-label" style="margin-bottom: 20px;">Chapter III</span>
+            <div class="history-grid">
+                <div class="history-text fade-up">
+                    <h2>ACADEMIC JOURNEY & HISTORY.</h2>
+                    <p>A chronological overview of my education, milestones, and technical evolution as a Computer Science student.</p>
                     
-                    <div class="skills-grid">
-                        <div class="skills-col">
-                            <h4>Frontend & Mobile</h4>
-                            <ul>
-                                <li>React / React Native</li>
-                                <li>JavaScript / HTML / CSS</li>
-                                <li>Tailwind CSS</li>
-                            </ul>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2023 &mdash; 2027 (Expected)</div>
+                            <h3 class="timeline-title">Bachelor of Science in Computer Science</h3>
+                            <p class="timeline-desc">Currently pursuing final year studies focusing on clean architecture, algorithms, and HCI principles across multi-platform development.</p>
                         </div>
-                        <div class="skills-col">
-                            <h4>Backend & Database</h4>
-                            <ul>
-                                <li>C# / .NET / MVC</li>
-                                <li>SQL Server / MySQL</li>
-                                <li>Firebase</li>
-                            </ul>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2024 &mdash; Present</div>
+                            <h3 class="timeline-title">Full-Stack & Mobile Specialization</h3>
+                            <p class="timeline-desc">Actively deploying production-grade web applications with React and ASP.NET MVC, alongside cross-platform tools like React Native.</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="about-image fade-up">
-                    <img src="https://avatars.githubusercontent.com/u/156290626?v=4" alt="Anchor Jave Arnejo">
+                <div class="skills-container fade-up">
+                    <div class="skills-col">
+                        <h4>Frontend & Mobile</h4>
+                        <ul>
+                            <li>React / React Native</li>
+                            <li>JavaScript / HTML / CSS</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    <div class="skills-col">
+                        <h4>Backend & Database</h4>
+                        <ul>
+                            <li>C# / .NET / MVC / Laravel / PHP </li>
+                            <li>Python</li>
+                            <li>SQL Server / MySQL / PostgresSQL </li>
+                            <li>Firebase</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -389,58 +497,44 @@
             const follower = document.getElementById("project-follower");
             const followerImg = document.getElementById("project-follower-img");
             
-            // Handle local broken image fallbacks in the hover container gracefully
             followerImg.addEventListener('error', function() {
                 this.src = 'https://placehold.co/800x500/111/555?text=Project+Image';
             });
             
-            // Check if device uses a fine pointer (desktop)
             if (window.matchMedia("(pointer: fine)").matches) {
-                
                 let mouseX = window.innerWidth / 2;
                 let mouseY = window.innerHeight / 2;
                 
-                // Track positions for Lerp (Linear Interpolation) to make movement buttery smooth
                 let cursorX = mouseX, cursorY = mouseY;
                 let followerX = mouseX, followerY = mouseY;
                 
-                let isHoveringProject = false;
-                let targetScale = 0.8;
                 let currentScale = 0.8;
+                let targetScale = 0.8;
 
-                // Capture raw mouse movement
                 document.addEventListener("mousemove", (e) => {
                     mouseX = e.clientX;
                     mouseY = e.clientY;
                 });
 
-                // Animation loop for smooth tracking
                 const render = () => {
-                    // Fast follow for the small dot
                     cursorX += (mouseX - cursorX) * 0.2;
                     cursorY += (mouseY - cursorY) * 0.2;
                     cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
 
-                    // Slightly delayed follow for the image container
                     followerX += (mouseX - followerX) * 0.08;
                     followerY += (mouseY - followerY) * 0.08;
-                    
-                    // Smooth scaling for the image container
                     currentScale += (targetScale - currentScale) * 0.1;
 
                     follower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%) scale(${currentScale})`;
-                    
                     requestAnimationFrame(render);
                 };
                 requestAnimationFrame(render);
 
-                // Add hover states for standard links
                 document.querySelectorAll(".interactable").forEach(el => {
                     el.addEventListener("mouseenter", () => cursor.classList.add("hover-link"));
                     el.addEventListener("mouseleave", () => cursor.classList.remove("hover-link"));
                 });
 
-                // Add hover states for projects (Triggers Image Reveal)
                 document.querySelectorAll(".work-item").forEach(item => {
                     item.addEventListener("mouseenter", () => {
                         const imgSrc = item.getAttribute("data-image");
@@ -448,44 +542,68 @@
                             followerImg.src = imgSrc;
                             follower.classList.add("active");
                             cursor.classList.add("hover-project");
-                            targetScale = 1; // Scale up to 1
+                            targetScale = 1;
                         }
                     });
                     
                     item.addEventListener("mouseleave", () => {
                         follower.classList.remove("active");
                         cursor.classList.remove("hover-project");
-                        targetScale = 0.8; // Scale down
+                        targetScale = 0.8;
                     });
                 });
             }
 
             // --- 2. Scroll Animations (Staggered Text Reveals & Fade Ups) ---
-            const observerOptions = {
-                root: null,
-                rootMargin: "0px 0px -10% 0px", // Trigger when slightly in view
-                threshold: 0.1
-            };
-
+            const observerOptions = { root: null, rootMargin: "0px 0px -10% 0px", threshold: 0.1 };
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("in-view");
-                        // Unobserve after animating once
                         observer.unobserve(entry.target); 
                     }
                 });
             }, observerOptions);
 
-            // Observe all text lines and fade-up elements
             document.querySelectorAll(".line-text, .fade-up").forEach(el => {
-                // Ensure elements inside the hero section trigger immediately on load
                 if(el.closest('#home')) {
                     setTimeout(() => el.classList.add("in-view"), 100);
                 } else {
                     observer.observe(el);
                 }
             });
+
+            // --- 3. Cinematic Chapter Reveal Scroll Logic ---
+            const cinematicSection = document.getElementById('cinematic-transition');
+            const cinematicImg = document.querySelector('.cinematic-img');
+            const cinematicOverlay = document.querySelector('.cinematic-overlay');
+            const cinematicText = document.querySelector('.cinematic-text');
+
+            if (cinematicSection && window.matchMedia("(min-width: 768px)").matches) {
+                window.addEventListener('scroll', () => {
+                    const rect = cinematicSection.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    let rawProgress = -rect.top / (rect.height - windowHeight);
+                    let progress = Math.max(0, Math.min(1, rawProgress));
+                    
+                    if (rect.top <= windowHeight && rect.bottom >= 0) {
+                        const scale = 1.1 - (0.1 * progress);
+                        const brightness = 0.5 + (0.5 * progress);
+                        
+                        cinematicImg.style.transform = `scale(${scale})`;
+                        cinematicImg.style.filter = `grayscale(100%) contrast(1.2) brightness(${brightness})`;
+                        
+                        const overlayOpacity = Math.max(0, 1 - (progress * 2.5));
+                        cinematicOverlay.style.opacity = overlayOpacity;
+
+                        const textOpacity = progress * 2.5; 
+                        const textTranslateY = 50 - (progress * 50);
+                        cinematicText.style.opacity = Math.min(1, textOpacity);
+                        cinematicText.style.transform = `translateY(${textTranslateY}px)`;
+                    }
+                });
+            }
         });
     </script>
 </body>
